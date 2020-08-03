@@ -1,6 +1,7 @@
 .node {
     width: 25px;
     height: 25px;
-    outline: 1px solid rgb(175, 216, 248);
+    outline: 1px solid rgb(185, 222, 247);
     display: inline-block;
+    vertical-align: top;
   }
