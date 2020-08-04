@@ -5,3 +5,8 @@
     display: inline-block;
     vertical-align: top;
   }
+
+.temp{
+  width: 25px;
+  height: 25px;
+}

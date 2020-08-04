@@ -25,7 +25,7 @@ class PathFindViz extends React.Component{
                 <NavBar/>
 
             </div>
-            <Node></Node>
+            <div className = "temp"></div>
             <div className="grid">
             {grid.map((row, rowIdx) => {
               return (
