@@ -63,18 +63,15 @@ class PathFindViz extends React.Component{
     // }
 
     render(){
-        // const {grid} = this.state;
         return(
             <>
               <NavBar/>
-              <div className = "temp"></div>
-              <div style = {{align :"center"}}>
+              <div className = "temp"></div>{/* For spacing lel */}
               <Grid 
                 grid = {this.state.grid}
                 rows = {this.rows}
                 cols = {this.cols}
               />
-              </div>
 
             </>    
         );

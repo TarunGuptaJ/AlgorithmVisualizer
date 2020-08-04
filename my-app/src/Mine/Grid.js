@@ -21,7 +21,7 @@ class Grid extends React.Component{
             rows,
             cols
         } = this.props;
-        console.log(this.props)
+        // console.log(this.props)
         let arrayOfNodes = []
         for(var i = 0;i<rows;i++) {
             
@@ -37,7 +37,7 @@ class Grid extends React.Component{
                     />
                 )
             }
-            console.log("entered",i,rows);
+            // console.log("entered",i,rows);
             
         }
         return(
