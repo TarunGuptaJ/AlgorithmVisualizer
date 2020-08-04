@@ -17,7 +17,6 @@ class Node extends React.Component{
     }
 }
 
-// export default Node;
 
 class Grid extends React.Component{
     render() {
@@ -28,8 +27,9 @@ class Grid extends React.Component{
             cols
         } = this.props;
         console.log(this.props)
+        let arrayOfNodes = []
         for(var i = 0;i<rows;i++) {
-            let arrayOfNodes = []
+            
             for(var j = 0;j<cols;j++) {
                 let nodeId = i + "_" + j
                 let type = getNodeType(grid,i,j);
@@ -43,13 +43,14 @@ class Grid extends React.Component{
                 )
             }
             console.log("entered",i,rows);
-            return(
-                <div>
-                    {arrayOfNodes}
-                </div>
-               
-            );
+            
         }
+        return(
+            <div style = {{width:"1250px", marginLeft : "17%"}}>
+                {arrayOfNodes}
+            </div>
+           
+        );
 
         
     }
