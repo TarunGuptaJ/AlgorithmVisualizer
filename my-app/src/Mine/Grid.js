@@ -3,11 +3,16 @@ import './Grid.css'
 
 class Node extends React.Component{
     render(){
+        
+        function hehe(){
+            console.log("clicked")
+        }
 
         return(
             <div
                 id={this.props.nodeId}
-                className = {this.props.class}></div>
+                className = {this.props.class}
+                onClick = {hehe}></div>
         );
     }
 }
