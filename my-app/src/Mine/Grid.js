@@ -1,13 +1,8 @@
 import React from 'react';
-import './Node.css'
+import './Grid.css'
 
 class Node extends React.Component{
     render(){
-
-        // const {
-        //     id,
-        //     myclass
-        // } = this.props;
 
         return(
             <div

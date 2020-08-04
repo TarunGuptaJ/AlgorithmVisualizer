@@ -1,7 +1,8 @@
 .start{
     width: 25px;
     height: 25px;
-    outline: 1px solid rgb(185, 222, 247);
+    /* outline: 1px solid rgb(185, 222, 247); */
+    background-color: rgb(26, 202, 49);
     display: inline-block;
     vertical-align: top;
   }
@@ -9,7 +10,7 @@
 .end{
   width: 25px;
   height: 25px;
-  outline: 1px solid rgb(185, 222, 247);
+  background-color: rgb(206, 55, 44);
   display: inline-block;
   vertical-align: top;
 }
@@ -23,7 +24,7 @@
 .wall{
   width: 25px;
   height: 25px;
-  outline: 1px solid rgb(185, 222, 247);
+  outline: 1px solid rgb(25, 25, 25);
   display: inline-block;
   vertical-align: top;
 }
