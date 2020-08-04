@@ -1,4 +1,4 @@
-.node {
+.start{
     width: 25px;
     height: 25px;
     outline: 1px solid rgb(185, 222, 247);
@@ -6,7 +6,40 @@
     vertical-align: top;
   }
 
+.end{
+  width: 25px;
+  height: 25px;
+  outline: 1px solid rgb(185, 222, 247);
+  display: inline-block;
+  vertical-align: top;
+}
+.empty{
+  width: 25px;
+  height: 25px;
+  outline: 1px solid rgb(185, 222, 247);
+  display: inline-block;
+  vertical-align: top;
+}
+.wall{
+  width: 25px;
+  height: 25px;
+  outline: 1px solid rgb(185, 222, 247);
+  display: inline-block;
+  vertical-align: top;
+}
+
+
 .temp{
   width: 25px;
   height: 25px;
+}
+
+.grid {
+  width: 150px;
+  line-height: 0;
+  margin: auto;
+  margin-top: 20px;
+  border-width: 2px;
+  border-color: #000000;
+  border-style: solid; 
 }

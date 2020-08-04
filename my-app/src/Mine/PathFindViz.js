@@ -2,71 +2,86 @@ import React from 'react';
 import './PathFindViz.css';
 import NavBar from './NavBar'
 
-import Node from './Node'
+import Grid from './Grid'
 
 class PathFindViz extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            grid:[]
+        this.rows = 20;
+        this.cols = 50;
+
+        this.startNode = {
+          X:10,Y:10
+        }
+
+        this.endNode = {
+          X:10,Y:40
+        }
+
+        this.startMovable = false;
+        this.endMovable = false;
+        this.createWalls = false;
+
+        this.algoExecuting = false;
+
+        this.getInitialGrid = (rows,cols) => {
+          var grid = new Array(rows);
+          for (let i = 0; i < rows; ++i) {
+              grid[i] = new Array(cols);
+          }
+
+          // console.log(this.endNode)
+
+          for(let i = 0;i<rows;++i) {
+            for(let j = 0;j<cols;++j) {
+              if(i === this.startNode.X && j === this.startNode.Y){
+                grid[i][j] = 1; // 1 for start node
+              }
+
+              else if(i === this.endNode.X && j === this.endNode.Y){
+                // console.log("bruh");
+                grid[i][j] = 2; // 2 for end node
+              }
+
+              else{
+                grid[i][j] = 0; // 0 for empty node
+              }
+            }
+          }
+
+          return grid;
         };
+
+        this.state = {
+          grid:this.getInitialGrid(this.rows,this.cols)
+        }
     }
 
-    componentDidMount(){
-        const grid = getInitialGrid();
-        this.setState({grid});
-    }
+    // componentDidMount(){
+    //     const grid = getInitialGrid();
+    //     this.setState({grid});
+    // }
 
     render(){
-        const {grid} = this.state;
+        // const {grid} = this.state;
         return(
             <>
-            <div>
-                <NavBar/>
+              <NavBar/>
+              <div className = "temp"></div>
+              <Grid 
+                grid = {this.state.grid}
+                rows = {this.rows}
+                cols = {this.cols}
+              />
 
-            </div>
-            <div className = "temp"></div>
-            <div className="grid">
-            {grid.map((row, rowIdx) => {
-              return (
-                <div key={rowIdx}>
-                  {row.map((node, nodeIdx) => {
-                    const {row, col} = node;
-                    return (
-                      <Node
-                        key={nodeIdx}
-                        col={col}
-                        row={row}></Node>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
-        </>    
+            </>    
         );
     }
 }
 
-const getInitialGrid = () => {
-    const grid = [];
-    for (let row = 0; row < 20; row++) {
-      const currentRow = [];
-      for (let col = 0; col < 50; col++) {
-        currentRow.push(createNode(col, row));
-      }
-      grid.push(currentRow);
-    }
-    return grid;
-  };
 
 
-const createNode = (col,row) =>{
-    return{
-        col,
-        row,
-    };
-};
+
 
 export default PathFindViz;
 
