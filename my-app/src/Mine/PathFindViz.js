@@ -57,10 +57,86 @@ class PathFindViz extends React.Component{
         }
     }
 
-    // componentDidMount(){
-    //     const grid = getInitialGrid();
-    //     this.setState({grid});
-    // }
+    // 0 empty, 1 start, 2 end, 3 wall
+    // Functions for moving start, end and creating walls
+    myMouseDown = (row,col) => {
+      if(this.algoExecuting === true) {
+        return;
+      }
+      else if(row === this.startNode.X && col === this.startNode.Y) {
+        this.startMovable = true;
+      }
+      else if(row === this.endNode.X && col === this.endNode.Y) {
+        this.endMovable = true;
+      }
+      else {
+        this.createWalls = true;
+      }
+    }
+
+    myMouseUp = () => {
+      if(this.endMovable === true) {
+        this.endMovable = false;
+      }
+      
+      if(this.startMovable === true) {
+        this.startMovable = false;
+      }
+
+      if(this.createWalls === false) {
+        this.createWalls = false;
+      }
+    }
+
+    // while mouse is held
+    myMouseEnter = (row,col) => {
+      if(this.createWalls === true && this.endMovable === true && this.startMovable === true) {
+        return;
+      }
+      else {
+        if(this.startMovable) {
+          let temp = this.state.grid;
+          temp[row][col] = 1;
+          temp[this.startNode.X][this.startNode.Y] = 0;
+          this.startNode.X = row;
+          this.startNode.Y = col;
+          this.setState({
+            grid:temp
+          })
+        }
+
+        else if(this.endMovable) {
+          let temp = this.state.grid; 
+          temp[row][col] = 2;
+          temp[this.endNode.X][this.endNode.Y] = 0;
+          this.endNode.X = row;
+          this.endNode.Y = col;
+          this.setState({
+            grid: temp
+          })
+        }
+
+        else if(this.createWalls) {
+          // TBD
+        }
+      }
+    }
+
+    // Inverting it, like undoing walls 
+    myMouseClick = (row,col) => {
+      let temp = this.state.grid;
+      if(temp[row][col] === 0) {
+        temp[row][col] = 3;
+      }
+      else if(temp[row][col] === 3) {
+        temp[row][col] = 0;
+      }
+
+      this.setState({
+        grid: temp
+      })
+    }
+
 
     render(){
         return(
