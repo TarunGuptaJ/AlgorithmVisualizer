@@ -3,7 +3,12 @@ import React, { Component } from 'react'
 import {Navbar, Button, NavDropdown, Nav} from 'react-bootstrap'
 
 class NavBar extends Component{
+    refresh =()=>{
+        window.location.reload(false);
+    }
+    
     render(){
+         
         return(
             <Navbar bg="dark" expand="lg" variant = "dark">
                 <Navbar.Brand href="#home">Algorithm Visualizer</Navbar.Brand>
@@ -20,7 +25,7 @@ class NavBar extends Component{
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
                     <Button variant = "dark" href="#Visualize">Visualize</Button>
-                    <Button variant = "dark" href="#Clear">Clear</Button>
+                    <Button variant = "dark" href="#Clear" onClick = {this.refresh}>Clear</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
