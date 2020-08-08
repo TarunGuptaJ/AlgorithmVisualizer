@@ -75,17 +75,11 @@ class PathFindViz extends React.Component{
     }
 
     myMouseUp = () => {
-      if(this.endMovable === true) {
-        this.endMovable = false;
-      }
       
-      if(this.startMovable === true) {
-        this.startMovable = false;
-      }
-
-      if(this.createWalls === false) {
-        this.createWalls = false;
-      }
+      this.endMovable = false;
+      this.startMovable = false;
+      this.createWalls = false;
+      
     }
 
     // while mouse is held
@@ -153,6 +147,7 @@ class PathFindViz extends React.Component{
     }
 
 
+    // myMouseClick, myMouseEnter, myMouseDown, myMouseUp
     render(){
         return(
             <>
@@ -162,6 +157,10 @@ class PathFindViz extends React.Component{
                 grid = {this.state.grid}
                 rows = {this.rows}
                 cols = {this.cols}
+                myMouseClick = {this.myMouseClick}
+                myMouseEnter = {this.myMouseEnter}
+                myMouseDown = {this.myMouseDown}
+                myMouseUp = {this.myMouseUp}
               />
 
             </>    

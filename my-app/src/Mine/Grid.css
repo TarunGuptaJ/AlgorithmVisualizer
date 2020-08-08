@@ -24,7 +24,7 @@
 .wall{
   width: 25px;
   height: 25px;
-  outline: 1px solid rgb(25, 25, 25);
+  background-color: rgb(17, 17, 41);
   display: inline-block;
   vertical-align: top;
 }

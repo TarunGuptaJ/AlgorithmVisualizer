@@ -1,18 +1,39 @@
 import React from 'react';
 import './Grid.css'
-
+// aaaabcdefbbbbad bad
+// aaaabb
+// aaaabad
 class Node extends React.Component{
+    mmc = () =>{
+        this.props.myMouseClick(this.props.row,this.props.col);
+    }
+
+    mmd = () =>{
+        this.props.myMouseDown(this.props.row,this.props.col);
+    }
+
+    mmu = () =>{
+        this.props.myMouseUp();
+    }
+
+    mme = () =>{
+        this.props.myMouseEnter(this.props.row,this.props.col);
+    }
+
     render(){
+
         
-        function hehe(){
-            console.log("clicked")
-        }
 
         return(
             <div
                 id={this.props.nodeId}
                 className = {this.props.class}
-                onClick = {hehe}></div>
+                onClick = {this.mmc}
+                onMouseDown = {this.mmd} 
+                onMouseEnter = {this.mme}
+                onMouseUp = {this.mmu}> 
+                
+            </div>
         );
     }
 }
@@ -39,6 +60,12 @@ class Grid extends React.Component{
                         nodeId = {nodeId}
                         key = {nodeId}
                         class = {type}
+                        row = {i}
+                        col = {j}
+                        myMouseClick = {this.props.myMouseClick}
+                        myMouseEnter = {this.props.myMouseEnter}
+                        myMouseDown = {this.props.myMouseDown}
+                        myMouseUp = {this.props.myMouseUp}
                     />
                 )
             }
