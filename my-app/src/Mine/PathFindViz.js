@@ -116,8 +116,23 @@ class PathFindViz extends React.Component{
           })
         }
 
+        // 0 empty, 1 start, 2 end, 3 wall
         else if(this.createWalls) {
           // TBD
+          let temp = this.state.grid;
+          if(temp[row][col] === 0) {
+            temp[row][col] = 3;
+          }
+          else if(temp[row][col] === 3) {
+            temp[row][col] = 0;
+          }
+          else {
+            console.log("NoPE");
+          }
+
+          this.setState({
+            grid:temp
+          })
         }
       }
     }
