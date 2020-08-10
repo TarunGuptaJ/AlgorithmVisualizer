@@ -22,6 +22,8 @@ class PathFindViz extends React.Component{
         this.endMovable = false;
         this.createWalls = false;
 
+        this.algorithmName = "Nothing";
+
         this.algoExecuting = false;
 
         this.getInitialGrid = (rows,cols) => {
@@ -146,8 +148,14 @@ class PathFindViz extends React.Component{
       })
     }
 
-
     // myMouseClick, myMouseEnter, myMouseDown, myMouseUp
+
+    setAlgoName = (AlgoName) => {
+      this.algorithmName = AlgoName;
+      console.log(this.algorithmName);
+
+    }
+
     render(){
         return(
             <>

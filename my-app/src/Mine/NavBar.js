@@ -7,6 +7,10 @@ class NavBar extends Component{
         window.location.reload(false);
     }
     
+    setBFS =()=> {
+        this.props.setAlgoName("BFS");
+    }
+
     render(){
          
         return(
@@ -18,9 +22,9 @@ class NavBar extends Component{
                     </Nav>
                     <Nav>
                     <NavDropdown title="Algorithms" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setBFS}>BFS</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">DFS</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Djikstras</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
