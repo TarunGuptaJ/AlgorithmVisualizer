@@ -21,14 +21,46 @@
   display: inline-block;
   vertical-align: top;
 }
-.wall{
+/* .wall{
   width: 25px;
   height: 25px;
   background-color: rgb(17, 17, 41);
   display: inline-block;
   vertical-align: top;
+} */
+
+.wall{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  vertical-align: top;
+  animation-name: wallAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
+@keyframes wallAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgb(39, 39, 44);
+    /* border-radius: 100%; */
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgb(30, 30, 46);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(17, 17, 41);
+  }
+}
 
 .temp{
   width: 25px;
