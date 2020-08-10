@@ -156,10 +156,23 @@ class PathFindViz extends React.Component{
 
     }
 
+    visualize = () =>{
+      if(this.algoExecuting) {
+        return;
+      }
+      
+      if(this.algorithmName === "BFS") {
+        this.algoExecuting = true;
+        // this.visualizeBFS(); TBD
+      }
+    }
+
     render(){
         return(
             <>
-              <NavBar/>
+              <NavBar
+                setAlgoName = {this.setAlgoName}
+              />
               <div className = "temp"></div>{/* For spacing lel */}
               <Grid 
                 grid = {this.state.grid}
