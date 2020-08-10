@@ -1,2 +1,2 @@
 # AlgorithmVisualizer
-React based algorithm visualizer
+React based tool for visualizing Pathfinding Algorithms. 
