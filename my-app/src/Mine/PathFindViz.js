@@ -1,7 +1,7 @@
 import React from 'react';
 import './PathFindViz.css';
 import NavBar from './NavBar'
-
+import BFS from './Algorithms/BFS'
 import Grid from './Grid'
 
 class PathFindViz extends React.Component{
@@ -156,14 +156,39 @@ class PathFindViz extends React.Component{
 
     }
 
+    animate(traversalNodes) {
+      for(let i = 0;i<=traversalNodes.length;++i) {
+
+        setTimeout(() => {
+          let node = traversalNodes[i];
+          document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
+        },10*i);
+      }
+      this.algorithmName = "Nothing";
+      this.algoExecuting = false;
+    }
+
+    getBFScoords = () => {
+      // const grid = this.state.grid;
+      
+      // Had to be reversed because left side top node is 0,0 so X and Y axis is inverted
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      console.log("inside");
+      var BFStraveralNodes = BFS(this.state.grid,beginNode,endNode);
+      console.log(BFStraveralNodes);
+      this.animate(BFStraveralNodes);
+    }
+
     visualize = () =>{
+      console.log("visualize");
       if(this.algoExecuting) {
         return;
       }
       
       if(this.algorithmName === "BFS") {
         this.algoExecuting = true;
-        // this.visualizeBFS(); TBD
+        this.getBFScoords();// TBD
       }
     }
 
@@ -172,6 +197,7 @@ class PathFindViz extends React.Component{
             <>
               <NavBar
                 setAlgoName = {this.setAlgoName}
+                visualize = {this.visualize}
               />
               <div className = "temp"></div>{/* For spacing lel */}
               <Grid 
