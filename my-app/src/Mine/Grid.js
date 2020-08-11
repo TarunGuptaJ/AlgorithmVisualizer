@@ -97,7 +97,9 @@ const getNodeType = (grid,i,j) => {
     else if(grid[i][j] === 3){
         return "wall";
     }
-    
+    else if(grid[i][j] === 5){
+        return "animate";
+    }
 
 }
 

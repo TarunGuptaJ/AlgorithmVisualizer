@@ -67,3 +67,12 @@
   height: 25px;
 }
 
+/* Animation part */
+.animate{
+  width: 25px;
+  height: 25px;
+  background-color: rgb(76, 206, 44);
+  display: inline-block;
+  vertical-align: top;
+}
+
