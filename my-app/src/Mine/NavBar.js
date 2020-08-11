@@ -11,6 +11,10 @@ class NavBar extends Component{
         this.props.setAlgoName("BFS");
     }
 
+    visualize =()=> {
+        this.props.visualize();
+    }
+
     render(){
          
         return(
@@ -28,7 +32,7 @@ class NavBar extends Component{
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
-                    <Button variant = "dark" href="#Visualize">Visualize</Button>
+                    <Button variant = "dark" onClick = {this.visualize}>Visualize</Button>
                     <Button variant = "dark" href="#Clear" onClick = {this.refresh}>Clear</Button>
                     </Nav>
                 </Navbar.Collapse>
