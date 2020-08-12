@@ -37,10 +37,19 @@ function BFS(grid = [], src, dest) {
         --j;
         // console.log(BFScoords);
         for(const i of adjacents) {
+            // if(grid[i[0]][i[1]] === 2) {
+            //     console.log("qweqweqwe",i[0],i[1]);
+            //     console.log("hqwrqwerqer");
+            //     return BFScoords;
+            // }
             grid[i[0]][i[1]] = 5;
             BFScoords.push(i);
             queue.push(i);
-            if(i[0] === dest[0] && i[1] === dest[1]) {
+            if(i === dest) {
+                console.log("h");
+                console.log(i,dest);
+            }
+            if(i[1] === dest[0] && i[0] === dest[1]) {
                 console.log("nahii");
                 return BFScoords;
             }

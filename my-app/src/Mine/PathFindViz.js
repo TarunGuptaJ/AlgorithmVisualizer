@@ -157,7 +157,7 @@ class PathFindViz extends React.Component{
     }
 
     animate(traversalNodes) {
-      for(let i = 0;i<=traversalNodes.length;++i) {
+      for(let i = 0;i<traversalNodes.length;++i) {
 
         setTimeout(() => {
           let node = traversalNodes[i];
@@ -176,7 +176,7 @@ class PathFindViz extends React.Component{
       const endNode = [this.endNode.Y,this.endNode.X]; 
       console.log("inside");
       var BFStraveralNodes = BFS(this.state.grid,beginNode,endNode);
-      console.log(BFStraveralNodes);
+      // console.log(BFStraveralNodes);
       this.animate(BFStraveralNodes);
     }
 
