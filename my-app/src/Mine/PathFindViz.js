@@ -15,7 +15,7 @@ class PathFindViz extends React.Component{
         }
 
         this.endNode = {
-          X:10,Y:40
+          X:40,Y:10
         }
 
         this.startMovable = false;
@@ -36,11 +36,11 @@ class PathFindViz extends React.Component{
 
           for(let i = 0;i<rows;++i) {
             for(let j = 0;j<cols;++j) {
-              if(i === this.startNode.X && j === this.startNode.Y){
+              if(i === this.startNode.Y && j === this.startNode.X){
                 grid[i][j] = 1; // 1 for start node
               }
 
-              else if(i === this.endNode.X && j === this.endNode.Y){
+              else if(i === this.endNode.Y && j === this.endNode.X){
                 // console.log("bruh");
                 grid[i][j] = 2; // 2 for end node
               }
@@ -65,10 +65,10 @@ class PathFindViz extends React.Component{
       if(this.algoExecuting === true) {
         return;
       }
-      else if(row === this.startNode.X && col === this.startNode.Y) {
+      else if(row === this.startNode.Y && col === this.startNode.X) {
         this.startMovable = true;
       }
-      else if(row === this.endNode.X && col === this.endNode.Y) {
+      else if(row === this.endNode.Y && col === this.endNode.X) {
         this.endMovable = true;
       }
       else {
@@ -93,9 +93,9 @@ class PathFindViz extends React.Component{
         if(this.startMovable) {
           let temp = this.state.grid;
           temp[row][col] = 1;
-          temp[this.startNode.X][this.startNode.Y] = 0;
-          this.startNode.X = row;
-          this.startNode.Y = col;
+          temp[this.startNode.Y][this.startNode.X] = 0;
+          this.startNode.Y = row;
+          this.startNode.X = col;
           this.setState({
             grid:temp
           })
@@ -104,9 +104,9 @@ class PathFindViz extends React.Component{
         else if(this.endMovable) {
           let temp = this.state.grid; 
           temp[row][col] = 2;
-          temp[this.endNode.X][this.endNode.Y] = 0;
-          this.endNode.X = row;
-          this.endNode.Y = col;
+          temp[this.endNode.Y][this.endNode.X] = 0;
+          this.endNode.Y = row;
+          this.endNode.X = col;
           this.setState({
             grid: temp
           })
@@ -114,7 +114,6 @@ class PathFindViz extends React.Component{
 
         // 0 empty, 1 start, 2 end, 3 wall
         else if(this.createWalls) {
-          // TBD
           let temp = this.state.grid;
           if(temp[row][col] === 0) {
             temp[row][col] = 3;
@@ -169,14 +168,11 @@ class PathFindViz extends React.Component{
     }
 
     getBFScoords = () => {
-      // const grid = this.state.grid;
-      
-      // Had to be reversed because left side top node is 0,0 so X and Y axis is inverted
+      // Had to be reversed because left side top node is 0,0 so Y and X axis is inverted
       const beginNode = [this.startNode.Y,this.startNode.X];
       const endNode = [this.endNode.Y,this.endNode.X]; 
       console.log("inside");
       var BFStraveralNodes = BFS(this.state.grid,beginNode,endNode);
-      // console.log(BFStraveralNodes);
       this.animate(BFStraveralNodes);
     }
 
@@ -188,7 +184,7 @@ class PathFindViz extends React.Component{
       
       if(this.algorithmName === "BFS") {
         this.algoExecuting = true;
-        this.getBFScoords();// TBD
+        this.getBFScoords();
       }
     }
 
