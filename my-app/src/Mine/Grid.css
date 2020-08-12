@@ -68,11 +68,39 @@
 }
 
 /* Animation part */
-.animate{
+.animate {
   width: 25px;
   height: 25px;
-  background-color: rgb(76, 206, 44);
   display: inline-block;
   vertical-align: top;
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(66, 45, 0, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(217, 97, 17, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(217, 141, 0, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(218, 167, 0, 0.75);
+  }
+}
