@@ -24,39 +24,29 @@ function BFS(grid = [], src, dest) {
     console.log("inside BFS function",src,dest);
     const queue = [];
     const BFScoords = [];
-    // const start = src;
     queue.push(src);
     grid[src[0]][src[1]] = 5;
-    var j = 800;
     while(queue.length > 0) {
-        console.log("lel");
-        if(j === 0)
-            return BFScoords;
         let start = queue.shift();
         const adjacents = getNeighbours(grid,start);
-        --j;
-        // console.log(BFScoords);
         for(const i of adjacents) {
-            // if(grid[i[0]][i[1]] === 2) {
-            //     console.log("qweqweqwe",i[0],i[1]);
-            //     console.log("hqwrqwerqer");
-            //     return BFScoords;
-            // }
             grid[i[0]][i[1]] = 5;
+
+            // if(grid[i[0]][i[1]] === 2)
+            //     return BFScoords;
             BFScoords.push(i);
             queue.push(i);
-            if(i === dest) {
-                console.log("h");
-                console.log(i,dest);
-            }
-            if(i[1] === dest[0] && i[0] === dest[1]) {
-                console.log("nahii");
+                
+            if(i[0] === dest[0] && i[1] === dest[1]) {
+                BFScoords.pop();
+                console.log("Found");
                 return BFScoords;
             }
         }
         
 
     }
+    return BFScoords;
 }
 
 export default BFS;
