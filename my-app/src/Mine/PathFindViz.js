@@ -156,12 +156,18 @@ class PathFindViz extends React.Component{
     }
 
     animate(traversalNodes) {
+      var minus1Counter = 0;
       for(let i = 0;i<traversalNodes.length;++i) {
-
-        setTimeout(() => {
-          let node = traversalNodes[i];
-          document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
-        },10*i);
+        if(traversalNodes[i]!==-1) {
+          setTimeout(() => {
+            let node = traversalNodes[i];
+            document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
+          },10*minus1Counter);
+        }
+        else {
+          minus1Counter++;
+        }
+        
       }
       this.algorithmName = "Nothing";
       this.algoExecuting = false;
