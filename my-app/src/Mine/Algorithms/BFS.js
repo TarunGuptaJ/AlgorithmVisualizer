@@ -24,18 +24,23 @@ function BFS(grid = [], src, dest) {
     console.log("inside BFS function",src,dest);
     const queue = [];
     const BFScoords = [];
+    // Finding shortest Path
+    let path = new Map();
+    path[src] = [-1,-1];
+
     queue.push(src);
     grid[src[0]][src[1]] = 5;
     while(queue.length > 0) {
         let start = queue.shift();
         const adjacents = getNeighbours(grid,start);
         for(const i of adjacents) {
+            path[i] = start;
             if(grid[i[0]][i[1]] !== 2)
                 grid[i[0]][i[1]] = 5;
 
             if(grid[i[0]][i[1]] === 2)
-                return BFScoords;
-            
+                return [BFScoords,path];
+
             BFScoords.push(i);
             queue.push(i);
             
@@ -51,7 +56,9 @@ function BFS(grid = [], src, dest) {
         
 
     }
-    return BFScoords;
+    path = new Map();
+    path[src] = [-2,-2];
+    return [BFScoords,src];
 }
 
 export default BFS;
