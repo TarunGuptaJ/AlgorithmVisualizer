@@ -155,20 +155,42 @@ class PathFindViz extends React.Component{
 
     }
 
-    animate(traversalNodes) {
+    animate(traversalNodes,path) {
       var minus1Counter = 0;
+      var traversalTime = 0;
       for(let i = 0;i<traversalNodes.length;++i) {
         if(traversalNodes[i]!==-1) {
           setTimeout(() => {
             let node = traversalNodes[i];
             document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
           },10*minus1Counter);
+          traversalTime = 10*minus1Counter;
         }
         else {
           minus1Counter++;
         }
         
       }
+      let renderPath = [];
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      let curr = endNode;
+      if(path[beginNode]!== [-2,-2]) {
+        while(curr[0] !== -1 && curr[1] !==-1 ) {
+          console.log(curr);
+          renderPath.unshift(curr);
+          curr = path[curr];
+        }
+      }
+      console.log(renderPath);
+      
+      for(let i = 0;i<renderPath.length;++i) {
+        setTimeout(() => {
+          let node = renderPath[i];
+          document.getElementById(`${node[0]}_${node[1]}`).className = 'path';
+        },traversalTime + 50*(i+1));
+      }
+
       this.algorithmName = "Nothing";
       this.algoExecuting = false;
     }
@@ -178,8 +200,9 @@ class PathFindViz extends React.Component{
       const beginNode = [this.startNode.Y,this.startNode.X];
       const endNode = [this.endNode.Y,this.endNode.X]; 
       console.log("inside");
-      var BFStraveralNodes = BFS(this.state.grid,beginNode,endNode);
-      this.animate(BFStraveralNodes);
+      var BFStraveralNodes,path; 
+      [BFStraveralNodes,path]= BFS(this.state.grid,beginNode,endNode);
+      this.animate(BFStraveralNodes,path);
     }
 
     visualize = () =>{
