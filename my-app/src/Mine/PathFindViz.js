@@ -155,7 +155,7 @@ class PathFindViz extends React.Component{
 
     }
 
-    animate(traversalNodes,path) {
+    animate(traversalNodes,renderPath) {
       var minus1Counter = 0;
       var traversalTime = 0;
       for(let i = 0;i<traversalNodes.length;++i) {
@@ -171,18 +171,6 @@ class PathFindViz extends React.Component{
         }
         
       }
-      let renderPath = [];
-      const beginNode = [this.startNode.Y,this.startNode.X];
-      const endNode = [this.endNode.Y,this.endNode.X]; 
-      let curr = endNode;
-      if(path[beginNode]!== [-2,-2]) {
-        while(curr[0] !== -1 && curr[1] !==-1 ) {
-          console.log(curr);
-          renderPath.unshift(curr);
-          curr = path[curr];
-        }
-      }
-      console.log(renderPath);
       
       for(let i = 0;i<renderPath.length;++i) {
         setTimeout(() => {

@@ -20,8 +20,25 @@ function getNeighbours(grid = [], node) {
 
 }
 
+function getRender(path, src, dest) {
+    let renderPath = [];
+    const beginNode = [src[0],src[1]];
+    const endNode = [dest[0],dest[1]]; 
+    let curr = endNode;
+    if(path[beginNode]!== [-2,-2]) {
+        while(curr[0] !== -1 && curr[1] !==-1 ) {
+            renderPath.unshift(curr);
+            curr = path[curr];
+        }
+    
+    }
+    return renderPath;
+
+}
+
+
+
 function BFS(grid = [], src, dest) {
-    console.log("inside BFS function",src,dest);
     const queue = [];
     const BFScoords = [];
     // Finding shortest Path
@@ -39,7 +56,7 @@ function BFS(grid = [], src, dest) {
                 grid[i[0]][i[1]] = 5;
 
             if(grid[i[0]][i[1]] === 2)
-                return [BFScoords,path];
+                return [BFScoords,getRender(path,src,dest)];
 
             BFScoords.push(i);
             queue.push(i);
@@ -58,7 +75,7 @@ function BFS(grid = [], src, dest) {
     }
     path = new Map();
     path[src] = [-2,-2];
-    return [BFScoords,src];
+    return [BFScoords,path];
 }
 
 export default BFS;
