@@ -1,9 +1,9 @@
 import React from 'react';
 import './PathFindViz.css';
 import NavBar from './NavBar'
-import BFS from './Algorithms/BFS'
 import Grid from './Grid'
-
+import BFS from './Algorithms/BFS'
+import DFS from './Algorithms/DFS'
 class PathFindViz extends React.Component{
     constructor(props){
         super(props);
@@ -182,7 +182,8 @@ class PathFindViz extends React.Component{
       this.algorithmName = "Nothing";
       this.algoExecuting = false;
     }
-
+    
+    // BFS begins 
     getBFScoords = () => {
       // Had to be reversed because left side top node is 0,0 so Y and X axis is inverted
       const beginNode = [this.startNode.Y,this.startNode.X];
@@ -192,6 +193,17 @@ class PathFindViz extends React.Component{
       [BFStraveralNodes,path]= BFS(this.state.grid,beginNode,endNode);
       this.animate(BFStraveralNodes,path);
     }
+    // BFS ends
+
+    // DFS begins
+    getBFScoords = () => {
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      var DFStraversalNodes, path;
+      [DFStraversalNodes, path]=DFS(this.state.grid,beginNode,endNode);
+      this.animate(DFStraversalNodes,path);
+    }
+    // DFS ends
 
     visualize = () =>{
       console.log("visualize");
@@ -202,6 +214,10 @@ class PathFindViz extends React.Component{
       if(this.algorithmName === "BFS") {
         this.algoExecuting = true;
         this.getBFScoords();
+      }
+
+      else if(this.algorithmName === "DFS") {
+        this.algoExecuting = true;
       }
     }
 

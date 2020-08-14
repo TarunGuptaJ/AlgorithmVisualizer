@@ -11,6 +11,10 @@ class NavBar extends Component{
         this.props.setAlgoName("BFS");
     }
 
+    setDFS =()=> {
+        this.props.setAlgoName("DFS");
+    }
+
     visualize =()=> {
         this.props.visualize();
     }
@@ -27,7 +31,7 @@ class NavBar extends Component{
                     <Nav>
                     <NavDropdown title="Algorithms" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick = {this.setBFS}>BFS</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">DFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setDFS}>DFS</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">Djikstras</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
