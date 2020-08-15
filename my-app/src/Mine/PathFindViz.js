@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import Grid from './Grid'
 import BFS from './Algorithms/BFS'
 import DFSreturn from './Algorithms/DFS';
+import Djikstra from './Algorithms/Djikstra';
 class PathFindViz extends React.Component{
     constructor(props){
         super(props);
@@ -207,11 +208,11 @@ class PathFindViz extends React.Component{
 
     // Djikstra begins
     getDJcoords = () => {
-      // const beginNode = [this.startNode.Y,this.startNode.X];
-      // const endNode = [this.endNode.Y,this.endNode.X]; 
-      // var DJtraversalNodes, path;
-      // [DJtraversalNodes, path] = 
-      // this.animate(DFStraversalNodes,path);
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      var DJtraversalNodes, path;
+      [DJtraversalNodes, path] = Djikstra(this.state.grid, beginNode, endNode);
+      this.animate(DJtraversalNodes,path);
 
     }
     // Djikstra ends
