@@ -163,7 +163,7 @@ class PathFindViz extends React.Component{
           setTimeout(() => {
             let node = traversalNodes[i];
             document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
-          },20*minus1Counter);
+          },10*minus1Counter);
           traversalTime = 10*minus1Counter;
         }
         else {
@@ -176,7 +176,7 @@ class PathFindViz extends React.Component{
         setTimeout(() => {
           let node = renderPath[i];
           document.getElementById(`${node[0]}_${node[1]}`).className = 'path';
-        },traversalTime + 50*(i+1));
+        },traversalTime + 50 + 50*(i+1));
       }
 
       this.algorithmName = "Nothing";
@@ -205,6 +205,16 @@ class PathFindViz extends React.Component{
     }
     // DFS ends
 
+    // Djikstra begins
+    getDJcoords = () => {
+      // const beginNode = [this.startNode.Y,this.startNode.X];
+      // const endNode = [this.endNode.Y,this.endNode.X]; 
+      // var DJtraversalNodes, path;
+      // [DJtraversalNodes, path] = 
+      // this.animate(DFStraversalNodes,path);
+
+    }
+    // Djikstra ends
     visualize = () =>{
       console.log("visualize");
       if(this.algoExecuting) {
@@ -219,6 +229,11 @@ class PathFindViz extends React.Component{
       else if(this.algorithmName === "DFS") {
         this.algoExecuting = true;
         this.getDFScoords();
+      }
+
+      else if(this.algorithmName === "DJ") {
+        this.algoExecuting = true;
+        this.getDJcoords();
       }
     }
 
