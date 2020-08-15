@@ -3,7 +3,7 @@ import './PathFindViz.css';
 import NavBar from './NavBar'
 import Grid from './Grid'
 import BFS from './Algorithms/BFS'
-import DFS from './Algorithms/DFS'
+import DFSreturn from './Algorithms/DFS';
 class PathFindViz extends React.Component{
     constructor(props){
         super(props);
@@ -196,11 +196,13 @@ class PathFindViz extends React.Component{
     // BFS ends
 
     // DFS begins
-    getBFScoords = () => {
+    getDFScoords = () => {
+      console.log("inside dfs coords")
       const beginNode = [this.startNode.Y,this.startNode.X];
       const endNode = [this.endNode.Y,this.endNode.X]; 
       var DFStraversalNodes, path;
-      [DFStraversalNodes, path]=DFS(this.state.grid,beginNode,endNode);
+      [DFStraversalNodes, path]=DFSreturn(this.state.grid,beginNode,endNode);
+      
       this.animate(DFStraversalNodes,path);
     }
     // DFS ends
@@ -217,7 +219,9 @@ class PathFindViz extends React.Component{
       }
 
       else if(this.algorithmName === "DFS") {
+        console.log("called");
         this.algoExecuting = true;
+        this.getDFScoords();
       }
     }
 
