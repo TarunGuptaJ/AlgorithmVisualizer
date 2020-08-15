@@ -9,7 +9,7 @@ class PathFindViz extends React.Component{
     constructor(props){
         super(props);
         this.rows = 20;
-        this.cols = 50;
+        this.cols = 51;
 
         this.startNode = {
           X:10,Y:10
@@ -238,12 +238,28 @@ class PathFindViz extends React.Component{
       }
     }
 
+    setMaze = (type) =>{
+      if(type === "M1") {
+
+      }
+      else if(type === "M2") {
+
+      }
+      else if(type === "M3") {
+
+      }
+      // this.setState({
+      //   grid: temp
+      // })
+    }
+
     render(){
         return(
             <>
               <NavBar
                 setAlgoName = {this.setAlgoName}
                 visualize = {this.visualize}
+                setMaze = {this.setMaze}
               />
               <div className = "temp"></div>{/* For spacing lel */}
               <Grid 

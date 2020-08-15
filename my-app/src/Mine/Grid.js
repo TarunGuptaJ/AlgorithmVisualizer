@@ -73,7 +73,7 @@ class Grid extends React.Component{
             
         }
         return(
-            <div style = {{width:"1250px", marginLeft : "17%"}}>
+            <div style = {{width:"1275px", marginLeft : "17%"}}>
                 {arrayOfNodes}
             </div>
            

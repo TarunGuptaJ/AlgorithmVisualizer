@@ -7,6 +7,7 @@ class NavBar extends Component{
         window.location.reload(false);
     }
     
+    // Algorithms
     setBFS =()=> {
         this.props.setAlgoName("BFS");
     }
@@ -19,9 +20,23 @@ class NavBar extends Component{
         this.props.setAlgoName("DJ");
     }
 
+    // Mazes
+    setMaze1 =()=> {
+        this.props.setMaze("M1");
+    }
+
+    setMaze2 =()=> {
+        this.props.setMaze("M2");
+    }
+
+    setMaze3 =()=> {
+        this.props.setMaze("M3");
+    }
+
     visualize =()=> {
         this.props.visualize();
     }
+
 
     render(){
          
@@ -34,9 +49,9 @@ class NavBar extends Component{
                     </Nav>
                     <Nav>
                     <NavDropdown title="Mazes" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Maze1</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Maze2</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Maze3</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setMaze1}>Maze1</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setMaze2}>Maze2</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setMaze3}>Maze3</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Algorithms" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick = {this.setBFS}>BFS</NavDropdown.Item>
