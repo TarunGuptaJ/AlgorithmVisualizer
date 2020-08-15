@@ -15,6 +15,10 @@ class NavBar extends Component{
         this.props.setAlgoName("DFS");
     }
 
+    setDJ =()=> {
+        this.props.setAlgoName("DJ");
+    }
+
     visualize =()=> {
         this.props.visualize();
     }
@@ -29,10 +33,15 @@ class NavBar extends Component{
                     <Nav className="mr-auto">
                     </Nav>
                     <Nav>
+                    <NavDropdown title="Mazes" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Maze1</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Maze2</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Maze3</NavDropdown.Item>
+                    </NavDropdown>
                     <NavDropdown title="Algorithms" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick = {this.setBFS}>BFS</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setDFS}>DFS</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Djikstras</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setDJ}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
