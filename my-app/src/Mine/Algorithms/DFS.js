@@ -2,9 +2,7 @@ var path = new Map();
 var DFScoords = [];
 var flag = 0;
 function DFSreturn(grid = [], src, dest) {
-    console.log("DFSreturn")
     DFS(grid, src[0], src[1], -1, -1);
-    console.log("yayy");
     if(flag === 0) {
         path = new Map();
         path[src] = [-2,-2];
@@ -22,7 +20,6 @@ function getRender(path, src, dest) {
     console.log(path);
     if(path[beginNode]!== [-2,-2]) {
         while(curr[0] !== -1 && curr[1] !==-1 ) {
-            console.log("checking",curr,path[curr]);
             renderPath.unshift(curr);
             curr = path[curr];
         }
@@ -33,7 +30,6 @@ function getRender(path, src, dest) {
 }
 
 function DFS(grid = [], row, col, prow, pcol) {
-    console.log("inside DFS");
     var rows = grid.length;
     var cols = grid[0].length;
     // console.log(grid[row][col]);
@@ -41,11 +37,8 @@ function DFS(grid = [], row, col, prow, pcol) {
         if(grid[row][col] === 2) {
             path[[row,col]] = [prow,pcol]; 
             flag = 1;
-            console.log("yaya");
             return;
         }
-    
-        console.log("DFS in");
     
         // var i = [row,col];
         path[[row,col]] = [prow,pcol]; 

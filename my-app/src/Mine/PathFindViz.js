@@ -163,7 +163,7 @@ class PathFindViz extends React.Component{
           setTimeout(() => {
             let node = traversalNodes[i];
             document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
-          },10*minus1Counter);
+          },20*minus1Counter);
           traversalTime = 10*minus1Counter;
         }
         else {
@@ -188,7 +188,6 @@ class PathFindViz extends React.Component{
       // Had to be reversed because left side top node is 0,0 so Y and X axis is inverted
       const beginNode = [this.startNode.Y,this.startNode.X];
       const endNode = [this.endNode.Y,this.endNode.X]; 
-      console.log("inside");
       var BFStraveralNodes,path; 
       [BFStraveralNodes,path]= BFS(this.state.grid,beginNode,endNode);
       this.animate(BFStraveralNodes,path);
@@ -197,7 +196,6 @@ class PathFindViz extends React.Component{
 
     // DFS begins
     getDFScoords = () => {
-      console.log("inside dfs coords")
       const beginNode = [this.startNode.Y,this.startNode.X];
       const endNode = [this.endNode.Y,this.endNode.X]; 
       var DFStraversalNodes, path;
@@ -219,7 +217,6 @@ class PathFindViz extends React.Component{
       }
 
       else if(this.algorithmName === "DFS") {
-        console.log("called");
         this.algoExecuting = true;
         this.getDFScoords();
       }
