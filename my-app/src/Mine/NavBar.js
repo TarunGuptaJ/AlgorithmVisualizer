@@ -49,9 +49,9 @@ class NavBar extends Component{
                     </Nav>
                     <Nav>
                     <NavDropdown title="Mazes" id="basic-nav-dropdown">
-                        <NavDropdown.Item onClick = {this.setMaze1}>Maze1</NavDropdown.Item>
-                        <NavDropdown.Item onClick = {this.setMaze2}>Maze2</NavDropdown.Item>
-                        <NavDropdown.Item onClick = {this.setMaze3}>Maze3</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setMaze1}>Maze 1</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setMaze2}>Maze 2</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setMaze3}>Maze 3</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Algorithms" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick = {this.setBFS}>BFS</NavDropdown.Item>

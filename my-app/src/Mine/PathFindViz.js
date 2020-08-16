@@ -5,6 +5,7 @@ import Grid from './Grid'
 import BFS from './Algorithms/BFS'
 import DFSreturn from './Algorithms/DFS';
 import Djikstra from './Algorithms/Djikstra';
+import generateConfig from './Maze';
 class PathFindViz extends React.Component{
     constructor(props){
         super(props);
@@ -240,13 +241,31 @@ class PathFindViz extends React.Component{
 
     setMaze = (type) =>{
       if(type === "M1") {
-
+        var temp = generateConfig("M1",this.rows,this.cols);
+        this.endNode.Y = 1;
+        this.endNode.X = 25;
+        temp[this.startNode.Y][this.startNode.X] = 1;
+        this.setState({
+          grid: temp 
+        })
       }
       else if(type === "M2") {
-
+        var temp2 = generateConfig("M2",this.rows,this.cols);
+        this.endNode.Y = 10;
+        this.endNode.X = 25;
+        temp2[this.startNode.Y][this.startNode.X] = 1;
+        this.setState({
+          grid: temp2
+        })
       }
       else if(type === "M3") {
-
+        var temp3 = generateConfig("M3",this.rows,this.cols);
+        this.endNode.Y = 16;
+        this.endNode.X = 25;
+        temp3[this.startNode.Y][this.startNode.X] = 1;
+        this.setState({
+          grid: temp3
+        })
       }
       // this.setState({
       //   grid: temp
