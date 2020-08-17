@@ -62,6 +62,24 @@ class NavBar extends Component{
                     </NavDropdown>
                     <Button variant = "dark" onClick = {this.visualize}>Visualize</Button>
                     <Button variant = "dark" href="#Clear" onClick = {this.refresh}>Clear</Button>
+                    {/* Dual Algorithm Visualizer */}
+                    <NavDropdown title="Algorithms 1" id="basic-nav-dropdown">
+                        <NavDropdown.Item>BFS</NavDropdown.Item>
+                        <NavDropdown.Item>DFS</NavDropdown.Item>
+                        <NavDropdown.Item>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    <Button variant = "dark" href="#Dual" >Versus</Button>
+                    <NavDropdown title="Algorithm 2" id="basic-nav-dropdown">
+                        <NavDropdown.Item>BFS</NavDropdown.Item>
+                        <NavDropdown.Item>DFS</NavDropdown.Item>
+                        <NavDropdown.Item>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    
+                
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
