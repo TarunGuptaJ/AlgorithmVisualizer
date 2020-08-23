@@ -5,6 +5,7 @@ import Grid from './Grid'
 import BFS from './Algorithms/BFS'
 import DFSreturn from './Algorithms/DFS';
 import Djikstra from './Algorithms/Djikstra';
+import AStar from './Algorithms/Astar';
 import generateConfig from './Maze';
 class PathFindViz extends React.Component{
     constructor(props){
@@ -217,6 +218,18 @@ class PathFindViz extends React.Component{
 
     }
     // Djikstra ends
+
+    // A* begins
+    getAScoords = () => {
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      var AStraversalNodes, path;
+      [AStraversalNodes, path] = AStar(this.state.grid, beginNode, endNode);
+      this.animate(AStraversalNodes,path);
+
+    }
+    // A* ends
+
     visualize = () =>{
       console.log("visualize");
       if(this.algoExecuting) {
@@ -236,6 +249,11 @@ class PathFindViz extends React.Component{
       else if(this.algorithmName === "DJ") {
         this.algoExecuting = true;
         this.getDJcoords();
+      }
+
+      else if(this.algorithmName === "AS") {
+        this.algoExecuting = true;
+        this.getAScoords();
       }
     }
 

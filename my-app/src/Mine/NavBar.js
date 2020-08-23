@@ -20,6 +20,10 @@ class NavBar extends Component{
         this.props.setAlgoName("DJ");
     }
 
+    setAS =()=> {
+        this.props.setAlgoName("AS");
+    }
+
     // Mazes
     setMaze1 =()=> {
         this.props.setMaze("M1");
@@ -57,6 +61,7 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setBFS}>BFS</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setDFS}>DFS</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setDJ}>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setAS}>A*</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
