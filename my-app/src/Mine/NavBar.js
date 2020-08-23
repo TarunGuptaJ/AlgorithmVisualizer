@@ -72,6 +72,7 @@ class NavBar extends Component{
                         <NavDropdown.Item>BFS</NavDropdown.Item>
                         <NavDropdown.Item>DFS</NavDropdown.Item>
                         <NavDropdown.Item>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Item>A*</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
@@ -80,6 +81,7 @@ class NavBar extends Component{
                         <NavDropdown.Item>BFS</NavDropdown.Item>
                         <NavDropdown.Item>DFS</NavDropdown.Item>
                         <NavDropdown.Item>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Item>A*</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
