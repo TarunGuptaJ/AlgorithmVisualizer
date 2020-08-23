@@ -246,7 +246,7 @@ class PathFindViz extends React.Component{
         this.getDFScoords();
       }
 
-      else if(this.algorithmName === "DJ") {
+      else if(this.algorithmName === "BFS") {
         this.algoExecuting = true;
         this.getDJcoords();
       }

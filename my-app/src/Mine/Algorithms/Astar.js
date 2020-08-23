@@ -1,4 +1,4 @@
-function AStar() {
+function AStar(grid = [], src, dest) {
 
 }
 

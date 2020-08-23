@@ -17,7 +17,8 @@ class NavBar extends Component{
     }
 
     setDJ =()=> {
-        this.props.setAlgoName("DJ");
+        // Since it is a unweighted implementation (BFS and Djikstras are same)
+        this.props.setAlgoName("BFS");
     }
 
     setAS =()=> {
