@@ -226,6 +226,7 @@ class PathFindViz extends React.Component{
       const endNode = [this.endNode.Y,this.endNode.X]; 
       var AStraversalNodes, path;
       [AStraversalNodes, path] = AStar(this.state.grid, beginNode, endNode);
+      path = path.reverse();
       this.animate(AStraversalNodes,path);
 
     }
