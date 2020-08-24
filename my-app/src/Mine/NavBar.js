@@ -25,6 +25,10 @@ class NavBar extends Component{
         this.props.setAlgoName("AS");
     }
 
+    setGBFS =()=> {
+        this.props.setAlgoName("GBFS");
+    }
+
     // Mazes
     setMaze1 =()=> {
         this.props.setMaze("M1");
@@ -63,6 +67,7 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDFS}>DFS</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setDJ}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS}>A*</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setGBFS}>Greedy BFS</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
@@ -74,6 +79,7 @@ class NavBar extends Component{
                         <NavDropdown.Item>DFS</NavDropdown.Item>
                         <NavDropdown.Item>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item>A*</NavDropdown.Item>
+                        <NavDropdown.Item>Greedy BFS</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
@@ -83,6 +89,7 @@ class NavBar extends Component{
                         <NavDropdown.Item>DFS</NavDropdown.Item>
                         <NavDropdown.Item>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item>A*</NavDropdown.Item>
+                        <NavDropdown.Item>Greedy BFS</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>

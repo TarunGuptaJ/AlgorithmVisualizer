@@ -6,6 +6,7 @@ import BFS from './Algorithms/BFS'
 import DFSreturn from './Algorithms/DFS';
 import Djikstra from './Algorithms/Djikstra';
 import AStar from './Algorithms/Astar';
+import GBFS from './Algorithms/GBFS'
 import generateConfig from './Maze';
 class PathFindViz extends React.Component{
     constructor(props){
@@ -230,6 +231,17 @@ class PathFindViz extends React.Component{
     }
     // A* ends
 
+    // Greedy Best first search begins
+    getGBFScoords = () => {
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      var GBFStraversalNodes, path;
+      [GBFStraversalNodes, path] = GBFS(this.state.grid, beginNode, endNode);
+      this.animate(GBFStraversalNodes,path);
+
+    }
+    // Greedy best first search ends
+
     visualize = () =>{
       console.log("visualize");
       if(this.algoExecuting) {
@@ -254,6 +266,11 @@ class PathFindViz extends React.Component{
       else if(this.algorithmName === "AS") {
         this.algoExecuting = true;
         this.getAScoords();
+      }
+
+      else if(this.algorithmName === "GBFS") {
+        this.algoExecuting = true;
+        this.getGBFScoords();
       }
     }
 
