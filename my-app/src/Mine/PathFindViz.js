@@ -238,6 +238,7 @@ class PathFindViz extends React.Component{
       const endNode = [this.endNode.Y,this.endNode.X]; 
       var GBFStraversalNodes, path;
       [GBFStraversalNodes, path] = GBFS(this.state.grid, beginNode, endNode);
+      path = path.reverse();
       this.animate(GBFStraversalNodes,path);
 
     }
