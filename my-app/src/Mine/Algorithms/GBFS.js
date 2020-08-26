@@ -26,15 +26,15 @@ function nodeDesc(i,j,grid) {
     this.wall = false;
 
     this.addNeighbours = function(tempGrid) {
-        console.log("hereer");
-        console.log(tempGrid);
+        // console.log("hereer");
+        // console.log(tempGrid);
         var i = this.i;
         var j = this.j;
         var rows = tempGrid.length;
         var cols = tempGrid[0].length;
         this.neighbours = [];
         if (i < cols - 1) {
-            console.log("shouldnt");
+            // console.log("shouldnt");
             this.neighbours.push(tempGrid[i + 1][j]);
         }
         if (i > 0) {
@@ -110,7 +110,7 @@ function GBFS(grid = [], src, dest) {
         }
 
         var current = pqueue[winner];
-        console.log(current);
+        // console.log(current);
         if (current === end) {
             console.log('DONE!');
             foundPath = 1;
