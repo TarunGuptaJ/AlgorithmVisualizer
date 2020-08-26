@@ -35,6 +35,8 @@ class PathFindViz extends React.Component{
         this.algoExecuting = false;
 
         this.dual = false;
+        this.algorithm1 = "BFS";
+        this.algorithm2 = "DFS";
 
         this.getInitialGrid = (rows,cols) => {
           var grid = new Array(rows);
@@ -159,9 +161,22 @@ class PathFindViz extends React.Component{
 
     // myMouseClick, myMouseEnter, myMouseDown, myMouseUp
 
-    setAlgoName = (AlgoName) => {
-      this.algorithmName = AlgoName;
-      console.log(this.algorithmName);
+    setAlgoName = (AlgoName, flag) => {
+      if(flag === 0) {
+        this.algorithmName = AlgoName;
+        console.log(this.algorithmName);
+      }
+
+      else if(flag === 1) {
+        this.algorithm1 = AlgoName;
+        console.log(this.algorithm1,"Algorithm1");
+      }
+
+      else if(flag === 2) {
+        this.algorithm1 = AlgoName;
+        console.log(this.algorithm1,"Algorithm1");
+      }
+      
 
     }
 

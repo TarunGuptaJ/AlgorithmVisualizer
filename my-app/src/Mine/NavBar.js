@@ -9,24 +9,24 @@ class NavBar extends Component{
     
     // Algorithms
     setBFS =()=> {
-        this.props.setAlgoName("BFS");
+        this.props.setAlgoName("BFS",0);
     }
 
     setDFS =()=> {
-        this.props.setAlgoName("DFS");
+        this.props.setAlgoName("DFS",0);
     }
 
     setDJ =()=> {
         // Since it is a unweighted implementation (BFS and Djikstras are same)
-        this.props.setAlgoName("BFS");
+        this.props.setAlgoName("BFS",0);
     }
 
     setAS =()=> {
-        this.props.setAlgoName("AS");
+        this.props.setAlgoName("AS",0);
     }
 
     setGBFS =()=> {
-        this.props.setAlgoName("GBFS");
+        this.props.setAlgoName("GBFS",0);
     }
 
     // Mazes
@@ -50,6 +50,51 @@ class NavBar extends Component{
     activateDual =()=> {
         this.props.activateDual();
     }
+
+    // Dual Algorithm 1
+    setBFS1 =()=> {
+        this.props.setAlgoName("BFS",1);
+    }
+
+    setDFS1 =()=> {
+        this.props.setAlgoName("DFS",1);
+    }
+
+    setDJ1 =()=> {
+        // Since it is a unweighted implementation (BFS and Djikstras are same)
+        this.props.setAlgoName("BFS",1);
+    }
+
+    setAS1 =()=> {
+        this.props.setAlgoName("AS",1);
+    }
+
+    setGBFS1 =()=> {
+        this.props.setAlgoName("GBFS",1);
+    }
+
+    // Dual Algorithm 2
+    setBFS2 =()=> {
+        this.props.setAlgoName("BFS",2);
+    }
+
+    setDFS2 =()=> {
+        this.props.setAlgoName("DFS",2);
+    }
+
+    setDJ2 =()=> {
+        // Since it is a unweighted implementation (BFS and Djikstras are same)
+        this.props.setAlgoName("BFS",2);
+    }
+
+    setAS2 =()=> {
+        this.props.setAlgoName("AS",2);
+    }
+
+    setGBFS2 =()=> {
+        this.props.setAlgoName("GBFS",2);
+    }
+
 
 
     render(){
@@ -82,21 +127,21 @@ class NavBar extends Component{
                     <Button variant = "dark" onClick = {this.activateDual} >Dual</Button>
 
                     <NavDropdown title="Algorithms 1" id="basic-nav-dropdown">
-                        <NavDropdown.Item>BFS</NavDropdown.Item>
-                        <NavDropdown.Item>DFS</NavDropdown.Item>
-                        <NavDropdown.Item>Djikstras</NavDropdown.Item>
-                        <NavDropdown.Item>A*</NavDropdown.Item>
-                        <NavDropdown.Item>Greedy BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setBFS1}>BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setDFS1}>DFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setDJ1}>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setAS1}>A*</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setGBFS1}>Greedy BFS</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
             
                     <NavDropdown title="Algorithm 2" id="basic-nav-dropdown">
-                        <NavDropdown.Item>BFS</NavDropdown.Item>
-                        <NavDropdown.Item>DFS</NavDropdown.Item>
-                        <NavDropdown.Item>Djikstras</NavDropdown.Item>
-                        <NavDropdown.Item>A*</NavDropdown.Item>
-                        <NavDropdown.Item>Greedy BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setBFS2}>BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setDFS2}>DFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setDJ2}>Djikstras</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setAS2}>A*</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setGBFS2}>Greedy BFS</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
