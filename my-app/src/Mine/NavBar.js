@@ -46,6 +46,11 @@ class NavBar extends Component{
         this.props.visualize();
     }
 
+    // Dual
+    activateDual =()=> {
+        this.props.activateDual();
+    }
+
 
     render(){
          
@@ -74,6 +79,8 @@ class NavBar extends Component{
                     <Button variant = "dark" onClick = {this.visualize}>Visualize</Button>
                     <Button variant = "dark" href="#Clear" onClick = {this.refresh}>Clear</Button>
                     {/* Dual Algorithm Visualizer */}
+                    <Button variant = "dark" onClick = {this.activateDual} >Dual</Button>
+
                     <NavDropdown title="Algorithms 1" id="basic-nav-dropdown">
                         <NavDropdown.Item>BFS</NavDropdown.Item>
                         <NavDropdown.Item>DFS</NavDropdown.Item>
@@ -83,7 +90,7 @@ class NavBar extends Component{
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
-                    <Button variant = "dark" href="#Dual" >Versus</Button>
+            
                     <NavDropdown title="Algorithm 2" id="basic-nav-dropdown">
                         <NavDropdown.Item>BFS</NavDropdown.Item>
                         <NavDropdown.Item>DFS</NavDropdown.Item>

@@ -22,6 +22,10 @@ class PathFindViz extends React.Component{
           X:40,Y:10
         }
 
+        this.secondStartNode = {
+          X:41,Y:10
+        }
+
         this.startMovable = false;
         this.endMovable = false;
         this.createWalls = false;
@@ -29,6 +33,8 @@ class PathFindViz extends React.Component{
         this.algorithmName = "Nothing";
 
         this.algoExecuting = false;
+
+        this.dual = false;
 
         this.getInitialGrid = (rows,cols) => {
           var grid = new Array(rows);
@@ -282,6 +288,11 @@ class PathFindViz extends React.Component{
         this.endNode.Y = 1;
         this.endNode.X = 25;
         temp[this.startNode.Y][this.startNode.X] = 1;
+        if(this.dual) {
+          this.secondStartNode.Y = this.startNode.Y;
+          this.secondStartNode.X = this.cols - this.startNode.X - 1;
+          temp[this.secondStartNode.Y][this.secondStartNode.X] = 1;
+        }
         this.setState({
           grid: temp 
         })
@@ -291,6 +302,11 @@ class PathFindViz extends React.Component{
         this.endNode.Y = 10;
         this.endNode.X = 25;
         temp2[this.startNode.Y][this.startNode.X] = 1;
+        if(this.dual) {
+          this.secondStartNode.Y = this.startNode.Y;
+          this.secondStartNode.X = this.cols - this.startNode.X - 1;
+          temp2[this.secondStartNode.Y][this.secondStartNode.X] = 1;
+        }
         this.setState({
           grid: temp2
         })
@@ -300,6 +316,11 @@ class PathFindViz extends React.Component{
         this.endNode.Y = 16;
         this.endNode.X = 25;
         temp3[this.startNode.Y][this.startNode.X] = 1;
+        if(this.dual) {
+          this.secondStartNode.Y = this.startNode.Y;
+          this.secondStartNode.X = this.cols - this.startNode.X - 1;
+          temp3[this.secondStartNode.Y][this.secondStartNode.X] = 1;
+        }
         this.setState({
           grid: temp3
         })
@@ -309,6 +330,14 @@ class PathFindViz extends React.Component{
       // })
     }
 
+    // Dual Rendering
+    activateDual = () => {
+      this.dual = true;
+      console.log("dual");
+      this.setMaze("M1");
+      
+    }
+
     render(){
         return(
             <>
@@ -316,6 +345,7 @@ class PathFindViz extends React.Component{
                 setAlgoName = {this.setAlgoName}
                 visualize = {this.visualize}
                 setMaze = {this.setMaze}
+                activateDual = {this.activateDual}
               />
               <div className = "temp"></div>{/* For spacing lel */}
               <Grid 
@@ -326,6 +356,7 @@ class PathFindViz extends React.Component{
                 myMouseEnter = {this.myMouseEnter}
                 myMouseDown = {this.myMouseDown}
                 myMouseUp = {this.myMouseUp}
+                
               />
 
             </>    
