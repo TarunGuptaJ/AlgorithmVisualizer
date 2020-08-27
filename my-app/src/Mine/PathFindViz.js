@@ -108,6 +108,14 @@ class PathFindViz extends React.Component{
           temp[this.startNode.Y][this.startNode.X] = 0;
           this.startNode.Y = row;
           this.startNode.X = col;
+
+          if(this.dual) {
+            temp[this.secondStartNode.Y][this.secondStartNode.X] = 0; 
+            this.secondStartNode.Y = this.startNode.Y;
+            this.secondStartNode.X = this.cols - this.startNode.X - 1;
+            temp[this.secondStartNode.Y][this.secondStartNode.X] = 1;
+          }
+
           this.setState({
             grid:temp
           })
@@ -174,7 +182,7 @@ class PathFindViz extends React.Component{
 
       else if(flag === 2) {
         this.algorithm1 = AlgoName;
-        console.log(this.algorithm1,"Algorithm1");
+        console.log(this.algorithm1,"Algorithm2");
       }
       
 
@@ -266,35 +274,41 @@ class PathFindViz extends React.Component{
     // Greedy best first search ends
 
     visualize = () =>{
-      console.log("visualize");
-      if(this.algoExecuting) {
-        return;
+      if(this.dual === true) {
+        this.dualVisualize();
+      }
+      else {
+        console.log("visualize");
+        if(this.algoExecuting) {
+          return;
+        }
+        
+        if(this.algorithmName === "BFS") {
+          this.algoExecuting = true;
+          this.getBFScoords();
+        }
+
+        else if(this.algorithmName === "DFS") {
+          this.algoExecuting = true;
+          this.getDFScoords();
+        }
+
+        else if(this.algorithmName === "BFS") {
+          this.algoExecuting = true;
+          this.getDJcoords();
+        }
+
+        else if(this.algorithmName === "AS") {
+          this.algoExecuting = true;
+          this.getAScoords();
+        }
+
+        else if(this.algorithmName === "GBFS") {
+          this.algoExecuting = true;
+          this.getGBFScoords();
+        }
       }
       
-      if(this.algorithmName === "BFS") {
-        this.algoExecuting = true;
-        this.getBFScoords();
-      }
-
-      else if(this.algorithmName === "DFS") {
-        this.algoExecuting = true;
-        this.getDFScoords();
-      }
-
-      else if(this.algorithmName === "BFS") {
-        this.algoExecuting = true;
-        this.getDJcoords();
-      }
-
-      else if(this.algorithmName === "AS") {
-        this.algoExecuting = true;
-        this.getAScoords();
-      }
-
-      else if(this.algorithmName === "GBFS") {
-        this.algoExecuting = true;
-        this.getGBFScoords();
-      }
     }
 
     setMaze = (type) =>{
@@ -353,6 +367,18 @@ class PathFindViz extends React.Component{
       
     }
 
+    dualVisualize = () => {
+      console.log("dualllll");
+      // First point 
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      // Second point
+      const beginNode2 = [this.secondStartNode.Y, this.secondStartNode.X]
+      // End point
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+
+
+    }
+
     render(){
         return(
             <>
@@ -361,6 +387,7 @@ class PathFindViz extends React.Component{
                 visualize = {this.visualize}
                 setMaze = {this.setMaze}
                 activateDual = {this.activateDual}
+                dualVisualize = {this.dualVisualize}
               />
               <div className = "temp"></div>{/* For spacing lel */}
               <Grid 
