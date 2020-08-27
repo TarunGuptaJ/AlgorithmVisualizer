@@ -26,15 +26,15 @@ function nodeDesc(i,j,grid) {
     this.wall = false;
 
     this.addNeighbours = function(tempGrid) {
-        console.log("hereer");
-        console.log(tempGrid);
+        // console.log("hereer");
+        // console.log(tempGrid);
         var i = this.i;
         var j = this.j;
         var rows = tempGrid.length;
         var cols = tempGrid[0].length;
         this.neighbours = [];
         if (i < cols - 1) {
-            console.log("shouldnt");
+            // console.log("shouldnt");
             this.neighbours.push(tempGrid[i + 1][j]);
         }
         if (i > 0) {
@@ -108,7 +108,7 @@ function AStar(grid = [], src, dest) {
     openSet.push(start);
 
     while(openSet.length !== 0) {
-        console.log("happens");
+        // console.log("happens");
         var winner = 0;
         for (var i = 0; i < openSet.length; i++) {
             if (openSet[i].f < openSet[winner].f) {
@@ -117,7 +117,7 @@ function AStar(grid = [], src, dest) {
         }
 
         var current = openSet[winner];
-        console.log(current);
+        // console.log(current);
         if (current === end) {
             console.log('DONE!');
             foundPath = 1;
@@ -134,7 +134,7 @@ function AStar(grid = [], src, dest) {
         var neighbours = current.neighbours;
         for(let i = 0;i<neighbours.length;++i) {
             var neighbour = neighbours[i];
-            console.log(neighbour);
+            // console.log(neighbour);
             if(!closedSet.includes(neighbour) && (neighbour!==undefined) && !neighbour.wall) {
                 var tempG = current.g + heuristic(neighbour,current);
 
