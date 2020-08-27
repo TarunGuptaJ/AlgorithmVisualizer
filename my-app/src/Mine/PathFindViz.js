@@ -293,7 +293,7 @@ class PathFindViz extends React.Component{
           this.getDFScoords();
         }
 
-        else if(this.algorithmName === "BFS") {
+        else if(this.algorithmName === "DJ") {
           this.algoExecuting = true;
           this.getDJcoords();
         }
@@ -375,6 +375,68 @@ class PathFindViz extends React.Component{
       const beginNode2 = [this.secondStartNode.Y, this.secondStartNode.X]
       // End point
       const endNode = [this.endNode.Y,this.endNode.X]; 
+      
+      // All variables
+      let visit1 = [];
+      let path1 = [];
+      let visit2 = [];
+      let path2 = [];
+
+      if(this.algoExecuting) {
+        return;
+      }
+      
+      if(this.algorithm1 === "BFS") {
+        this.algoExecuting = true;
+        [visit1, path1]=BFS(this.state.grid,beginNode,endNode);
+      }
+
+      else if(this.algorithm1 === "DFS") {
+        this.algoExecuting = true;
+        [visit1, path1]=DFSreturn(this.state.grid,beginNode,endNode);
+      }
+
+      else if(this.algorithm1 === "BFS") {
+        this.algoExecuting = true;
+        [visit1, path1]=BFS(this.state.grid,beginNode,endNode);
+      }
+
+      else if(this.algorithm1 === "AS") {
+        this.algoExecuting = true;
+        [visit1, path1]=AStar(this.state.grid,beginNode,endNode);
+      }
+
+      else if(this.algorithm1 === "GBFS") {
+        this.algoExecuting = true;
+        [visit1, path1]=GBFS(this.state.grid,beginNode,endNode);
+      }
+
+      //--------------------------------------------------- Second algorithm -----------------------------------------------------------
+      if(this.algorithm2 === "BFS") {
+        this.algoExecuting = true;
+        [visit2, path2]=BFS(this.state.grid,beginNode2,endNode);
+      }
+
+      else if(this.algorithm2 === "DFS") {
+        this.algoExecuting = true;
+        [visit2, path2]=DFSreturn(this.state.grid,beginNode2,endNode);
+      }
+
+      else if(this.algorithm2 === "BFS") {
+        this.algoExecuting = true;
+        [visit2, path2]=BFS(this.state.grid,beginNode2,endNode);
+      }
+
+      else if(this.algorithm2 === "AS") {
+        this.algoExecuting = true;
+        [visit2, path2]=AStar(this.state.grid,beginNode2,endNode);
+      }
+
+      else if(this.algorithm2 === "GBFS") {
+        this.algoExecuting = true;
+        [visit2, path2]=GBFS(this.state.grid,beginNode2,endNode);
+      }
+
 
 
     }
