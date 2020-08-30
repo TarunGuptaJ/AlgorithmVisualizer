@@ -181,7 +181,7 @@ class PathFindViz extends React.Component{
       }
 
       else if(flag === 2) {
-        this.algorithm1 = AlgoName;
+        this.algorithm2 = AlgoName;
         console.log(this.algorithm1,"Algorithm2");
       }
       
@@ -386,58 +386,97 @@ class PathFindViz extends React.Component{
         return;
       }
       
+      console.log(this.algorithm1, this.algorithm2);
       if(this.algorithm1 === "BFS") {
+        console.log("BFS dual");
         this.algoExecuting = true;
-        [visit1, path1]=BFS(this.state.grid,beginNode,endNode);
+        [visit1, path1]=BFS(this.state.grid,beginNode,endNode, 1);
       }
 
       else if(this.algorithm1 === "DFS") {
         this.algoExecuting = true;
-        [visit1, path1]=DFSreturn(this.state.grid,beginNode,endNode);
+        [visit1, path1]=DFSreturn(this.state.grid,beginNode,endNode, 1);
       }
 
       else if(this.algorithm1 === "BFS") {
         this.algoExecuting = true;
-        [visit1, path1]=BFS(this.state.grid,beginNode,endNode);
+        [visit1, path1]=BFS(this.state.grid,beginNode,endNode, 1);
       }
 
       else if(this.algorithm1 === "AS") {
         this.algoExecuting = true;
-        [visit1, path1]=AStar(this.state.grid,beginNode,endNode);
+        [visit1, path1]=AStar(this.state.grid,beginNode,endNode, 1);
       }
 
       else if(this.algorithm1 === "GBFS") {
         this.algoExecuting = true;
-        [visit1, path1]=GBFS(this.state.grid,beginNode,endNode);
+        [visit1, path1]=GBFS(this.state.grid,beginNode,endNode, 1);
       }
 
       //--------------------------------------------------- Second algorithm -----------------------------------------------------------
       if(this.algorithm2 === "BFS") {
+        console.log("BFS dual");
         this.algoExecuting = true;
-        [visit2, path2]=BFS(this.state.grid,beginNode2,endNode);
+        [visit2, path2]=BFS(this.state.grid,beginNode2,endNode, 2);
       }
 
       else if(this.algorithm2 === "DFS") {
         this.algoExecuting = true;
-        [visit2, path2]=DFSreturn(this.state.grid,beginNode2,endNode);
+        [visit2, path2]=DFSreturn(this.state.grid,beginNode2,endNode, 2);
       }
 
       else if(this.algorithm2 === "BFS") {
         this.algoExecuting = true;
-        [visit2, path2]=BFS(this.state.grid,beginNode2,endNode);
+        [visit2, path2]=BFS(this.state.grid,beginNode2,endNode, 2);
       }
 
       else if(this.algorithm2 === "AS") {
         this.algoExecuting = true;
-        [visit2, path2]=AStar(this.state.grid,beginNode2,endNode);
+        [visit2, path2]=AStar(this.state.grid,beginNode2,endNode, 2);
       }
 
       else if(this.algorithm2 === "GBFS") {
         this.algoExecuting = true;
-        [visit2, path2]=GBFS(this.state.grid,beginNode2,endNode);
+        [visit2, path2]=GBFS(this.state.grid,beginNode2,endNode, 2);
       }
 
+      console.log(visit1);
+      console.log(visit2)
+      let tempvisit1 = [], tempvisit2 = [];
+      for(let i = 0;i<visit1.length;++i) {
+        if(visit1[i]!==-1) {
+          tempvisit1.push(visit1[i]);
+        }
+      }
 
+      for(let i = 0;i<visit2.length;++i) {
+        if(visit2[i]!==-1) {
+          tempvisit2.push(visit2[i]);
+        }
+      }
+
+      visit1 = tempvisit1;
+      visit2 = tempvisit2;
+      for(let i = 0;i<visit1.length;++i) {
+      
+        setTimeout(() => {
+          let node = visit1[i];
+          document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
+        },10*i);
+        
+      }
+
+      for(let i = 0;i<visit2.length;++i) {
+      
+        setTimeout(() => {
+          let node = visit2[i]
+          document.getElementById(`${node[0]}_${node[1]}`).className = 'animate1';
+        },10*i);
+        
+      
+        
+      }
+      
 
     }
 
