@@ -25,7 +25,7 @@ function nodeDesc(i,j,grid) {
 
     this.wall = false;
 
-    this.addNeighbours = function(tempGrid) {
+    this.addNeighbours = function(tempGrid, constraints) {
         // console.log("hereer");
         // console.log(tempGrid);
         var i = this.i;
@@ -33,6 +33,16 @@ function nodeDesc(i,j,grid) {
         var rows = tempGrid.length;
         var cols = tempGrid[0].length;
         this.neighbours = [];
+
+        let initial = 0;
+        if(constraints === 1) {
+            cols = 26;
+        }
+
+        if(constraints === 2) {
+            initial = 25;
+        }
+
         if (i < cols - 1) {
             // console.log("shouldnt");
             this.neighbours.push(tempGrid[i + 1][j]);
@@ -43,7 +53,7 @@ function nodeDesc(i,j,grid) {
         if (j < rows - 1) {
             this.neighbours.push(tempGrid[i][j + 1]);
         }
-        if (j > 0) {
+        if (j > initial) {
             this.neighbours.push(tempGrid[i][j - 1]);
         }    
     };
@@ -51,7 +61,7 @@ function nodeDesc(i,j,grid) {
 
 
 // Greedy Best First Search
-function GBFS(grid = [], src, dest) {
+function GBFS(grid = [], src, dest, constraints = 0) {
     var rows = grid.length;
     var cols = grid[0].length;
 
@@ -83,7 +93,7 @@ function GBFS(grid = [], src, dest) {
     
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
-            tempGrid[i][j].addNeighbours(tempGrid);
+            tempGrid[i][j].addNeighbours(tempGrid, constraints);
         }
     }
 
