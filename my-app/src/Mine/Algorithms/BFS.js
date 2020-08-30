@@ -1,19 +1,26 @@
-function getNeighbours(grid = [], node) {
+function getNeighbours(grid = [], node, constraints) {
     let rows = grid.length;
     let cols = grid[0].length;
+    if(constraints === 1) {
+        cols = 26;
+    }
     let row = node[0];
     let col = node[1];
     let neighbours = [];
-    if ((row + 1 >= 0) && (row + 1 < rows) && (col >= 0) && (col < cols) && (grid[row + 1][col]!== 3 && grid[row + 1][col] !== 5)) {
+    let initial = 0;
+    if(constraints === 2) {
+        initial = 25
+    }
+    if ((row + 1 >= 0) && (row + 1 < rows) && (col >= initial) && (col < cols) && (grid[row + 1][col]!== 3 && grid[row + 1][col] !== 5)) {
         neighbours.push([row + 1, col]);
     }
-    if ((row - 1) >= 0 && row - 1 < rows && col >= 0 && col < cols && (grid[row - 1][col] !== 3 && grid[row - 1][col] !== 5)) {
+    if ((row - 1) >= 0 && row - 1 < rows && col >= initial && col < cols && (grid[row - 1][col] !== 3 && grid[row - 1][col] !== 5)) {
         neighbours.push([row - 1, col]);
     }
-    if ((row) >= 0 && row < rows && col + 1 >= 0 && col + 1 < cols && (grid[row][col+1] !== 3 && grid[row][col+1] !== 5)) {
+    if ((row) >= 0 && row < rows && col + 1 >= initial && col + 1 < cols && (grid[row][col+1] !== 3 && grid[row][col+1] !== 5)) {
         neighbours.push([row, col + 1]);
     }
-    if ((row) >= 0 && row < rows && col - 1 >= 0 && col - 1 < cols && (grid[row][col-1] !== 3 && grid[row][col-1] !== 5)) {
+    if ((row) >= 0 && row < rows && col - 1 >= initial && col - 1 < cols && (grid[row][col-1] !== 3 && grid[row][col-1] !== 5)) {
         neighbours.push([row, col - 1]);
     }
     return neighbours;
@@ -38,7 +45,7 @@ function getRender(path, src, dest) {
 
 
 
-function BFS(grid = [], src, dest) {
+function BFS(grid = [], src, dest, constraints = 0) {
     const queue = [];
     const BFScoords = [];
     // Finding shortest Path
@@ -49,7 +56,7 @@ function BFS(grid = [], src, dest) {
     grid[src[0]][src[1]] = 5;
     while(queue.length > 0) {
         let start = queue.shift();
-        const adjacents = getNeighbours(grid,start);
+        const adjacents = getNeighbours(grid,start, constraints);
         for(const i of adjacents) {
             path[i] = start;
             if(grid[i[0]][i[1]] !== 2)
