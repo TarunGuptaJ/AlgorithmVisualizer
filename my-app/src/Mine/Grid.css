@@ -167,6 +167,28 @@
   }
 
   50% {
+    background-color: rgba(39, 97, 145, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(27, 87, 92, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(47, 152, 160, 0.75);
+  }
+}
+
+/* @keyframes visitedAnimation1 {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 36, 70, 0.993);
+    border-radius: 100%;
+  }
+
+  50% {
     background-color: rgba(0, 81, 148, 0.75);
   }
 
@@ -179,4 +201,4 @@
     transform: scale(1);
     background-color: rgba(0, 151, 161, 0.75);
   }
-}
+} */
