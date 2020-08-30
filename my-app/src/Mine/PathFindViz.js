@@ -7,6 +7,7 @@ import DFSreturn from './Algorithms/DFS';
 import Djikstra from './Algorithms/Djikstra';
 import AStar from './Algorithms/Astar';
 import GBFS from './Algorithms/GBFS'
+import DFSreturntemp from './Algorithms/DFStemp'
 import generateConfig from './Maze';
 class PathFindViz extends React.Component{
     constructor(props){
@@ -386,9 +387,9 @@ class PathFindViz extends React.Component{
         return;
       }
       
-      console.log(this.algorithm1, this.algorithm2);
+      let tempgrid = this.state.grid;
+
       if(this.algorithm1 === "BFS") {
-        console.log("BFS dual");
         this.algoExecuting = true;
         [visit1, path1]=BFS(this.state.grid,beginNode,endNode, 1);
       }
@@ -406,23 +407,25 @@ class PathFindViz extends React.Component{
       else if(this.algorithm1 === "AS") {
         this.algoExecuting = true;
         [visit1, path1]=AStar(this.state.grid,beginNode,endNode, 1);
+        path1 = path1.reverse();
       }
 
       else if(this.algorithm1 === "GBFS") {
         this.algoExecuting = true;
         [visit1, path1]=GBFS(this.state.grid,beginNode,endNode, 1);
+        path1 = path1.reverse();
       }
 
       //--------------------------------------------------- Second algorithm -----------------------------------------------------------
       if(this.algorithm2 === "BFS") {
-        console.log("BFS dual");
         this.algoExecuting = true;
         [visit2, path2]=BFS(this.state.grid,beginNode2,endNode, 2);
       }
 
       else if(this.algorithm2 === "DFS") {
         this.algoExecuting = true;
-        [visit2, path2]=DFSreturn(this.state.grid,beginNode2,endNode, 2);
+        [visit2, path2]=DFSreturntemp(tempgrid,beginNode2,endNode, 2);
+        
       }
 
       else if(this.algorithm2 === "BFS") {
@@ -433,15 +436,15 @@ class PathFindViz extends React.Component{
       else if(this.algorithm2 === "AS") {
         this.algoExecuting = true;
         [visit2, path2]=AStar(this.state.grid,beginNode2,endNode, 2);
+        path2 = path2.reverse();
       }
 
       else if(this.algorithm2 === "GBFS") {
         this.algoExecuting = true;
         [visit2, path2]=GBFS(this.state.grid,beginNode2,endNode, 2);
+        path2 = path2.reverse();
       }
 
-      console.log(visit1);
-      console.log(visit2)
       let tempvisit1 = [], tempvisit2 = [];
       for(let i = 0;i<visit1.length;++i) {
         if(visit1[i]!==-1) {
@@ -457,26 +460,82 @@ class PathFindViz extends React.Component{
 
       visit1 = tempvisit1;
       visit2 = tempvisit2;
+      let len1, len2;
       for(let i = 0;i<visit1.length;++i) {
-      
-        setTimeout(() => {
-          let node = visit1[i];
-          document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
-        },10*i);
-        
+        if(visit1[i][0] === this.endNode.Y && visit1[i][1] === this.endNode.X) {
+          len1 = i;
+        }
       }
 
       for(let i = 0;i<visit2.length;++i) {
-      
-        setTimeout(() => {
-          let node = visit2[i]
-          document.getElementById(`${node[0]}_${node[1]}`).className = 'animate1';
-        },10*i);
-        
-      
-        
+        if(visit2[i][0] === this.endNode.Y && visit2[i][1] === this.endNode.X) {
+          len2 = i;
+        }
       }
-      
+
+      console.log(len1,len2,"yaay");
+      if(len1 < len2) {
+        let traversalTime = 0;
+        for(let i = 0;i<len1;++i) {
+          setTimeout(() => {
+            let node = visit1[i];
+            if(node!==undefined){
+              document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
+            }
+            
+          },10*i);
+
+          setTimeout(() => {
+            let node = visit2[i];
+            if(node!==undefined){
+              document.getElementById(`${node[0]}_${node[1]}`).className = 'animate1';
+            }
+            
+          },10*i);
+          traversalTime = 10*i;
+        }
+
+        for(let i = 0;i<path1.length;++i) {
+          setTimeout(() => {
+            let node = path1[i];
+            if(node!==undefined) {
+              document.getElementById(`${node[0]}_${node[1]}`).className = 'path';
+            }
+            
+          },traversalTime + 50 + 50*(i+1));
+        }
+      }
+      else {
+        let traversalTime = 0;
+        for(let i = 0;i<len2;++i) {
+          setTimeout(() => {
+            let node = visit1[i];
+            if(node!==undefined) {
+              document.getElementById(`${node[0]}_${node[1]}`).className = 'animate';
+            }
+            
+          },10*i);
+
+          setTimeout(() => {
+            let node = visit2[i];
+            if(node!==undefined) {
+              document.getElementById(`${node[0]}_${node[1]}`).className = 'animate1';
+            }
+            
+          },10*i);
+          traversalTime = 10*i;
+        }
+
+        for(let i = 0;i<path2.length;++i) {
+          setTimeout(() => {
+            let node = path2[i];
+            if(node!==undefined) {
+              document.getElementById(`${node[0]}_${node[1]}`).className = 'path';
+            }
+            
+          },traversalTime + 50 + 50*(i+1));
+        }
+      }
 
     }
 
