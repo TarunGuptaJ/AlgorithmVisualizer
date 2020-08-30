@@ -62,9 +62,10 @@ function BFS(grid = [], src, dest, constraints = 0) {
             if(grid[i[0]][i[1]] !== 2)
                 grid[i[0]][i[1]] = 5;
 
-            if(grid[i[0]][i[1]] === 2)
+            if(grid[i[0]][i[1]] === 2) {
+                BFScoords.push(i);
                 return [BFScoords,getRender(path,src,dest)];
-
+            }
             BFScoords.push(i);
             queue.push(i);
             

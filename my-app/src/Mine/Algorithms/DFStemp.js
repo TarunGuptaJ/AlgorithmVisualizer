@@ -46,6 +46,7 @@ function DFS(grid = [], row, col, prow, pcol, constraints) {
     console.log(initial,"dead", constraints);
     if(row >= 0 && col >= initial && row < rows && col < cols && grid[row][col]!== 3 && grid[row][col] !== 5) {
         if(grid[row][col] === 2) {
+            DFScoords.push([row,col]);
             path[[row,col]] = [prow,pcol]; 
             flag = 1;
             return;
