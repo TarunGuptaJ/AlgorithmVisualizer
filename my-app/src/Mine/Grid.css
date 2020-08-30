@@ -124,7 +124,7 @@
 @keyframes pathAnimation {
   0% {
     transform: scale(0.3);
-    background-color: rgba(0, 0, 66, 0.75);
+    background-color: rgba(2, 68, 40, 0.75);
     border-radius: 100%;
   }
 
@@ -134,12 +134,12 @@
 
   75% {
     transform: scale(1.2);
-    background-color: rgba(0, 217, 159, 0.75);
+    background-color: rgba(7, 199, 189, 0.75);
   }
 
   100% {
     transform: scale(1);
-    background-color: rgba(15, 73, 73, 0.75);
+    background-color: rgba(0, 71, 47, 0.75);
   }
 }
 
@@ -162,17 +162,17 @@
 @keyframes visitedAnimation1 {
   0% {
     transform: scale(0.3);
-    background-color: rgba(0, 58, 66, 0.75);
+    background-color: rgba(29, 151, 46, 0.75);
     border-radius: 100%;
   }
 
   50% {
-    background-color: rgba(0, 233, 241, 0.75);
+    background-color: rgba(110, 201, 204, 0.75);
   }
 
   75% {
     transform: scale(1.2);
-    background-color: rgba(0, 217, 206, 0.75);
+    background-color: rgba(24, 236, 137, 0.75);
   }
 
   100% {
