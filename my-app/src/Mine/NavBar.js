@@ -118,8 +118,8 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDJ}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS}>A*</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setGBFS}>Greedy BFS</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        {/* <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>
                     <Button variant = "dark" onClick = {this.visualize}>Visualize</Button>
                     <Button variant = "dark" href="#Clear" onClick = {this.refresh}>Clear</Button>
@@ -132,8 +132,8 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDJ1}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS1}>A*</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setGBFS1}>Greedy BFS</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        {/* <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>
             
                     <NavDropdown title="Algorithm 2" id="basic-nav-dropdown">
@@ -142,8 +142,8 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDJ2}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS2}>A*</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setGBFS2}>Greedy BFS</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        {/* <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>
                     
                 
