@@ -369,7 +369,7 @@ class PathFindViz extends React.Component{
     }
 
     dualVisualize = () => {
-      console.log("dualllll");
+      console.log("dual visualize");
       // First point 
       const beginNode = [this.startNode.Y,this.startNode.X];
       // Second point
@@ -473,7 +473,7 @@ class PathFindViz extends React.Component{
         }
       }
 
-      console.log(len1,len2,"yaay");
+      // console.log(len1,len2,"yaay");
       if(len1 < len2) {
         let traversalTime = 0;
         for(let i = 0;i<len1;++i) {
@@ -536,6 +536,7 @@ class PathFindViz extends React.Component{
           },traversalTime + 50 + 50*(i+1));
         }
       }
+      this.algoExecuting = false;
 
     }
 

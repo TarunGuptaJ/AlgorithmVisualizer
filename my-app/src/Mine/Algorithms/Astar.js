@@ -128,7 +128,7 @@ function AStar(grid = [], src, dest, constraints = 0) {
         // console.log(current);
         if (current === end) {
             myVisited.push([current.i,current.j]);
-            console.log('DONE!');
+            // console.log('DONE!');
             foundPath = 1;
             break;
             

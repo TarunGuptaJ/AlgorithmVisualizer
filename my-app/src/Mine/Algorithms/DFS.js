@@ -2,7 +2,7 @@ var path = new Map();
 var DFScoords = [];
 var flag = 0;
 function DFSreturn(grid = [], src, dest, constraints = 0) {
-    console.log(src);
+    // console.log(src);
     DFS(grid, src[0], src[1], -1, -1, constraints);
     if(flag === 0) {
         path = new Map();
@@ -18,7 +18,7 @@ function getRender(path, src, dest) {
     const beginNode = [src[0],src[1]];
     const endNode = [dest[0],dest[1]]; 
     let curr = endNode;
-    console.log(path);
+    // console.log(path);
     if(path[beginNode]!== [-2,-2]) {
         while(curr[0] !== -1 && curr[1] !==-1 ) {
             renderPath.unshift(curr);
@@ -43,7 +43,7 @@ function DFS(grid = [], row, col, prow, pcol, constraints) {
         initial = 25;
     }
 
-    console.log(initial,"dead", constraints);
+    // console.log(initial,"dead", constraints);
     if(row >= 0 && col >= initial && row < rows && col < cols && grid[row][col]!== 3 && grid[row][col] !== 5) {
         if(grid[row][col] === 2) {
             DFScoords.push([row,col]);
@@ -59,7 +59,7 @@ function DFS(grid = [], row, col, prow, pcol, constraints) {
             grid[row][col] = 5;
         }
 
-        console.log([row,col]);
+        // console.log([row,col]);
         DFScoords.push([row,col]);
         DFScoords.push(-1);
     
