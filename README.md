@@ -16,3 +16,7 @@ React based tool for visualizing Pathfinding Algorithms.
 * React
 * JavaScript
 * CSS
+
+## Tutorials and Reference links
+* [Clement's Pathfinding Visualizer](https://clementmihailescu.github.io/Pathfinding-Visualizer/)
+* [Clement's Tutorial for the same](https://www.youtube.com/watch?v=msttfIHHkak)
