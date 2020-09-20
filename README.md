@@ -5,9 +5,13 @@ React based tool for visualizing Pathfinding Algorithms.
 * BFS
 ![Demo](Working/BFS.gif)
 * DFS
+![Demo](Working/DFS.gif)
 * Djikstra
+![Demo](Working/Djikstra.gif)
 * A*
+![Demo](Working/Astar.gif)
 * Greedy Best First Search
+![Demo](Working/GBFS.gif)
 
 ## Features
 * Implemented a unique "versus" feature which enables the user to visualize 2 algorithms at the same time and understand which finds the destination first.
