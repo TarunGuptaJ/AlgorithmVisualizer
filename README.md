@@ -27,6 +27,11 @@ React based tool for visualizing Pathfinding Algorithms.
 
 ---
 
+* **Uniform Cost Search**
+![UCS](Working/UCS.gif)
+
+---
+
 
 ## Features
 * Implemented a unique "versus" feature which enables the user to visualize 2 algorithms at the same time and understand which finds the destination first.
