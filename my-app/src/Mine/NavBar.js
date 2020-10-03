@@ -29,6 +29,10 @@ class NavBar extends Component{
         this.props.setAlgoName("GBFS",0);
     }
 
+    setUCS =()=> {
+        this.props.setAlgoName("UCS",0);
+    }
+
     // Mazes
     setMaze1 =()=> {
         this.props.setMaze("M1");
@@ -73,6 +77,11 @@ class NavBar extends Component{
         this.props.setAlgoName("GBFS",1);
     }
 
+    setUCS1 =()=> {
+        this.props.setAlgoName("UCS",1);
+    }
+
+
     // Dual Algorithm 2
     setBFS2 =()=> {
         this.props.setAlgoName("BFS",2);
@@ -93,6 +102,10 @@ class NavBar extends Component{
 
     setGBFS2 =()=> {
         this.props.setAlgoName("GBFS",2);
+    }
+
+    setUCS2 =()=> {
+        this.props.setAlgoName("UCS",2);
     }
 
 
@@ -118,6 +131,7 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDJ}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS}>A*</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setGBFS}>Greedy BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setUCS}>UCS</NavDropdown.Item>
                         {/* <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>
@@ -132,6 +146,7 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDJ1}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS1}>A*</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setGBFS1}>Greedy BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setUCS1}>UCS</NavDropdown.Item>
                         {/* <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>
@@ -142,6 +157,7 @@ class NavBar extends Component{
                         <NavDropdown.Item onClick = {this.setDJ2}>Djikstras</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setAS2}>A*</NavDropdown.Item>
                         <NavDropdown.Item onClick = {this.setGBFS2}>Greedy BFS</NavDropdown.Item>
+                        <NavDropdown.Item onClick = {this.setUCS2}>UCS</NavDropdown.Item>
                         {/* <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>

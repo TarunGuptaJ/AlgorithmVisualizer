@@ -7,7 +7,8 @@ import DFSreturn from './Algorithms/DFS';
 import Djikstra from './Algorithms/Djikstra';
 import AStar from './Algorithms/Astar';
 import GBFS from './Algorithms/GBFS'
-import DFSreturntemp from './Algorithms/DFStemp'
+import DFSreturntemp from './Algorithms/DFStemp';
+import UCS from './Algorithms/UCS';
 import generateConfig from './Maze';
 class PathFindViz extends React.Component{
     constructor(props){
@@ -274,6 +275,18 @@ class PathFindViz extends React.Component{
     }
     // Greedy best first search ends
 
+    // Uniform Cost Search
+    getUCScoords = () => {
+      const beginNode = [this.startNode.Y,this.startNode.X];
+      const endNode = [this.endNode.Y,this.endNode.X]; 
+      var UCStraversalNodes, path;
+      [UCStraversalNodes, path] = UCS(this.state.grid, beginNode, endNode);
+      path = path.reverse();
+      this.animate(UCStraversalNodes,path);
+
+    }
+    // Uniform Cost search ends
+
     visualize = () =>{
       if(this.dual === true) {
         this.dualVisualize();
@@ -307,6 +320,11 @@ class PathFindViz extends React.Component{
         else if(this.algorithmName === "GBFS") {
           this.algoExecuting = true;
           this.getGBFScoords();
+        }
+
+        else if(this.algorithmName === "UCS") {
+          this.algoExecuting = true;
+          this.getUCScoords();
         }
       }
       
@@ -416,6 +434,12 @@ class PathFindViz extends React.Component{
         path1 = path1.reverse();
       }
 
+      else if(this.algorithm1 === "UCS") {
+        this.algoExecuting = true;
+        [visit1, path1]=UCS(this.state.grid,beginNode,endNode, 1);
+        path1 = path1.reverse();
+      }
+
       //--------------------------------------------------- Second algorithm -----------------------------------------------------------
       if(this.algorithm2 === "BFS") {
         this.algoExecuting = true;
@@ -442,6 +466,12 @@ class PathFindViz extends React.Component{
       else if(this.algorithm2 === "GBFS") {
         this.algoExecuting = true;
         [visit2, path2]=GBFS(this.state.grid,beginNode2,endNode, 2);
+        path2 = path2.reverse();
+      }
+
+      else if(this.algorithm2 === "UCS") {
+        this.algoExecuting = true;
+        [visit2, path2]=UCS(this.state.grid,beginNode2,endNode, 2);
         path2 = path2.reverse();
       }
 
