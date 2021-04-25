@@ -1,6 +1,9 @@
 # AlgorithmVisualizer
 React based tool for visualizing Pathfinding Algorithms. 
 
+## Website Hosted
+You can view an active implementation at this [link](https://tarunguptaj.github.io/algo-viz-host/).
+
 ## Algorithms Implemented
 * **BFS**
 ![BFS](Working/BFS.gif)
